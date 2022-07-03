@@ -10,20 +10,26 @@ body {
   color: white;
   overflow: hidden;
   display: flex;
-  flex-direction: column;
+  flex-grow: 1;
+  flex-direction: row;
 }
 
 #page {
-  width: 60%;
+  display:flex;
+  width: 70%;
   justify-content: center;
   margin: 0 auto;
+  display: block;
+}
+
+.counter {
+  display: inline-block;
 }
 
 .reset {
   color: #333;
   border: 1px solid #333;
   cursor: pointer;
-  display: block;
   width: 100%;
   border: none;
   padding: 14px 28px;
@@ -35,8 +41,8 @@ body {
 
 .btn {
   font-size: 1.5em;
-  width: 100px;
-  height: 100px;
+  width: 200px;
+  height: 200px;
   border-radius: 50%;
   margin: 25px;
   cursor: pointer;
@@ -48,12 +54,17 @@ body {
 
 #left {
   text-align: center;
+  flex-basis: 0;
   flex-grow: 3;
+  display: block;
+  order: 1;
 }
 
 #right {
   text-align: center;
-  flex-grow: 1;
+  flex-basis: 0;
+  flex-grow: 2;
+  order: 2;
 }
 
 .content {
