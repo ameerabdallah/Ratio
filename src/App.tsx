@@ -39,21 +39,22 @@ function App() {
     const { a, b, aColor, bColor, ratioAsPercentage } = props;
     let ratio: any = a / b;
 
-    const aStyle = {
-      color: aColor,
-    };
-    const bStyle = {
-      color: bColor || "",
-    };
+  
     let ratioColor: string;
     if (a > b) {
       ratioColor = aColor;
     } else if (a < b) {
       ratioColor = bColor || aColor;
     } else {
-      ratioColor = "yellow";
+      ratioColor = bColor ? "yellow" : aColor;
     }
 
+    const aStyle = {
+      color: aColor,
+    };
+    const bStyle = {
+      color: bColor || "",
+    };
     const ratioStyle = {
       color: ratioColor,
     };
@@ -69,9 +70,9 @@ function App() {
       }
     }
     return (
-      <h3>
-        <span style={aStyle}>{a}</span> : <span style={bStyle}>{b}</span> ={" "}
-        <span style={ratioStyle}>{ratio}</span>
+      <h3 className="ratio">
+        <span className="ratioLeft"><span style={aStyle}>{a}</span> : <span style={bStyle}>{b}</span></span> 
+        <span style={ratioStyle} className="ratioRight">{ratio}</span>
       </h3>
     );
   };
@@ -84,11 +85,11 @@ function App() {
     const { value, buttonClassName, onClick } = props;
     return (
       <div className="counter">
-        <button className={`btn ${buttonClassName}`} onClick={() => onClick(clamp(value - 1))}>
+        <button className={`btn minus ${buttonClassName}`} onClick={() => onClick(clamp(value - 1))}>
           -
         </button>
-        <span className="value">{value}</span>
-        <button className={`btn ${buttonClassName}`} onClick={() => onClick(clamp(value + 1))}>
+        <span className={`value ${buttonClassName}`}>{value}</span>
+        <button className={`btn plus ${buttonClassName}`} onClick={() => onClick(clamp(value + 1))}>
           +
         </button>
       </div>
@@ -111,13 +112,19 @@ function App() {
         <div id="left" className="content">
           <Counter value={pos} buttonClassName="pos" onClick={setPos} />
           <Counter value={neg} buttonClassName="neg" onClick={setNeg} />
-          <Counter value={neu} onClick={setNeu} buttonClassName="neu" />
+          <Counter value={neu} buttonClassName="neu" onClick={setNeu}/>
         </div>
         <div id="right" className="content">
-          <Ratio a={pos} b={neg} aColor={lightGreen} bColor={"red"}/>
-          <Ratio a={neg} b={pos} aColor={"red"} bColor={lightGreen} />
-          <Ratio a={pos} b={pos + neg + neu} aColor={lightGreen} ratioAsPercentage={true}/>
-          <Ratio a={neg} b={neg + pos + neu} aColor={"red"} ratioAsPercentage={true}/>
+          <div id="posRatios" className="ratios">
+            <h4>Positive</h4>
+            <Ratio a={pos} b={neg} aColor={lightGreen} bColor={"red"}/>
+            <Ratio a={pos} b={pos + neg + neu} aColor={lightGreen} ratioAsPercentage={true}/>
+          </div>
+          <div id="negRatios" className="ratios">
+            <h4>Negative</h4>
+            <Ratio a={neg} b={pos} aColor={"red"} bColor={lightGreen} />
+            <Ratio a={neg} b={neg + pos + neu} aColor={"red"} ratioAsPercentage={true}/>
+          </div>
         </div>
       </body>
     </div>
