@@ -11,19 +11,34 @@
   flex-direction: column;
 }
 
+input {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  box-sizing: border-box;
+  border: 2px solid grey;
+  background-color: #282c34;
+  color: lightgray;
+  font-size: 3vmin;
+  padding: 1vmin;
+}
 
 .reset {
-  order: 1;
-  color: #333;
-  border: 1px solid #333;
-  cursor: pointer;
+  box-sizing: border-box;
+  order: 3;
+  border: 2px solid grey;
   width: 100%;
-  border: none;
-  padding: 14px 28px;
-  font-size: 50px;
-  background-color: "grey";
+  padding: 1vmin;
+  font-size: 3vmin;
+  font-weight: bold;
+  background-color: lightblue;
   cursor: pointer;
   text-align: center;
+}
+.reset:hover {
+  background-color: darkcyan;
 }
 
 body {
@@ -33,8 +48,8 @@ body {
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   background-color: #282c34;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  font-size: 1.5vmin;
+  color: lightgray;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -44,8 +59,7 @@ body {
   width: 100%;
   flex-direction: column;
   justify-content: space-between;
-  border-color: white;
-  border-style: solid;
+  border: 2px solid grey;
   text-align: center;
 }
 
@@ -54,23 +68,22 @@ body {
   display: flex;
   order: 1;
 }
+
 .counter {
   height: 100%;
-  line-height: 100%;
-  border: 1px solid #fff;
+  border: 2px solid grey;
   display: inline-flex;
   flex-direction: row;
   text-align: center;
   justify-content: space-between;
-  font-size: 1.5em;
+  font-size: 2vmin;
 }
 
 .btn {
-  font-size: 1.5em;
+  font-size: 3vmin;
   width: 100px;
   height: 100%;
   cursor: pointer;
-  border: 4px solid #000;
   align-self: center;
 }
 
@@ -87,6 +100,7 @@ body {
 }
 
 .value {
+  width: 20%;
   height: 100%;
   display: flex;
   justify-content: center;
@@ -109,12 +123,19 @@ body {
   background-color: inherit;
 }
 
+.value.pos:hover
+.value.neg:hover
+.value.neu:hover {
+  background-color: #282c34;
+}
+
 /* Right Flex Box */
 #right {
   box-sizing: border-box;
   text-align: center;
   justify-content: space-evenly;
   order: 2;
+  border: 2px solid grey;
 }
 
 .ratios {
@@ -124,8 +145,7 @@ body {
   align-items: center;
   height: 50%;
   width: 100%;
-  border-style: solid;
-  border-width: 6px;
+  border: 4px solid grey;
   box-sizing: border-box;
 }
 
@@ -137,6 +157,10 @@ body {
   display: inline-flex;
   align-items: center;
   justify-content: space-evenly;
+}
+.ratios h4 {
+  background-color: inherit;
+  text-decoration: underline;
 }
 
 .ratioRight {
@@ -154,9 +178,7 @@ body {
 }
 
 #posRatios h4 {
-  background-color: inherit;
   color: #4CAF50;
-  text-decoration: underline;
 }
 
 #negRatios {
@@ -164,37 +186,86 @@ body {
 }
 
 #negRatios h4 {
-  background-color: inherit;
   color: red;
-  text-decoration: underline;
 }
 
 .score {
-  font-size: 2em;
   font-weight: bold;
   margin-bottom: 10px;
-}
-
-
-button:hover {
-  background-image: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet, red);
-  animation:slidebg 2s linear infinite;
 }
 
 .neu {
   background-color: yellow;
 }
+.neu:hover {
+  background-color: darkgoldenrod;
+}
 
 .pos {
   background-color: #4CAF50;
+}
+.pos:hover {
+  background-color: darkgreen;
 }
 
 .neg {
   background-color: red;
 }
+.neg:hover {
+  background-color: darkred;
+}
 
-@keyframes slidebg {
-  to {
-    background-position:20vw;
+@media (max-width: 600px) {
+  button:hover {
+    background-color: inherit;
+  }
+
+  #root {
+    width: 100vw;
+  }
+
+  #page {
+    width: 100%;
+  }
+
+  .reset {
+    width: 100%;
+  }
+
+  .counter {
+    width: 100%;
+  }
+
+  .btn {
+    width: 100%;
+  }
+
+  .minus {
+    width: 100%;
+  }
+
+  .plus {
+    width: 100%;
+  }
+
+  .value {
+    width: 100%;
+  }
+
+  .ratios {
+    width: 100%;
+  }
+
+  .ratio {
+    width: 100%;
+  }
+
+  .ratioRight {
+    margin-right: 0;
+  }
+
+  .ratioLeft {
+    margin-left: 0;
   }
 }
+
