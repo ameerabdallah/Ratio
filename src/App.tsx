@@ -102,19 +102,19 @@ const App = () => {
           <Counter
             value={pos}
             buttonClassName="pos"
-            onClick={setPos}
+            setValue={setPos}
             soundEffect={yaySoundEffect}
           />
           <Counter
             value={neg}
             buttonClassName="neg"
-            onClick={setNeg}
+            setValue={setNeg}
             soundEffect={naySoundEffect}
           />
           <Counter
             value={neu}
             buttonClassName="neu"
-            onClick={setNeu}
+            setValue={setNeu}
             soundEffect={ehSoundEffect}
           />
           <button

@@ -32,7 +32,7 @@ input {
 }
 
 .recharts-pie-sector path {
-  stroke-width: 0.4em;
+  stroke-width: 0.15em;
 }
 
 .reset {
@@ -89,6 +89,13 @@ body {
 
 #counters .value {
   align-self: center;
+  width: 100%;
+}
+
+#counters .value::-webkit-outer-spin-button,
+#counters .value::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 .counter {
@@ -114,13 +121,11 @@ body {
 .minus {
   width: 40%;
   justify-self: left;
-  margin-right: 20px;
 }
 
 .plus {
   width: 40%;
   justify-self: right;
-  margin-left: 20px;
 }
 
 .value {
