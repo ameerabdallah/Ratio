@@ -1,3 +1,15 @@
+$backgroundPrimaryColor: #282c34;
+$backgroundSecondaryColor: grey;
+
+$posPrimaryColor: #4CAF50;
+$posSecondaryColor: darkgreen;
+
+$negPrimaryColor: red;
+$negSecondaryColor: darkred;
+
+$neuPrimaryColor: yellow;
+$neuSecondaryColor: darkgoldenrod;
+
 #root {
   width: 100vw;
   justify-content: center;
@@ -24,21 +36,28 @@ input {
   text-align: center;
   width: 100%;
   box-sizing: border-box;
-  border: 0.1em solid grey;
-  background-color: #282c34;
+  border: 0.1em solid $backgroundSecondaryColor;
+  background-color: $backgroundPrimaryColor;
   color: lightgray;
   font-size: 3vmin;
   padding: 1vmin;
 }
 
+.recharts-legend-item .recharts-surface {
+  width: 1em;
+  height: 1em;
+  margin: 0.4em;
+}
+
 .recharts-pie-sector path {
   stroke-width: 0.15em;
+  stroke: $backgroundSecondaryColor;
 }
 
 .reset {
   box-sizing: border-box;
   order: 4;
-  border: 0.1em solid grey;
+  border: 0.1em solid $backgroundSecondaryColor;
   width: 100%;
   font-size: 2em;
   font-weight: bold;
@@ -51,7 +70,7 @@ input {
 }
 
 body {
-  background-color: #282c34;
+  background-color: $backgroundPrimaryColor;
   color: lightgray;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -62,8 +81,8 @@ body {
 
 .counter-with-stats {
   order: 1;
-  background-color: #282c34;
-  border: solid grey;
+  background-color: $backgroundPrimaryColor;
+  border: solid $backgroundSecondaryColor;
   border-left-width: 0.1em;
   color: lightgray;
   display: flex;
@@ -82,7 +101,7 @@ body {
 #counters {
   display: flex;
   order: 1;
-  width: 40%;
+  width: 30%;
   height: 30em;
   justify-content: center;
 }
@@ -101,7 +120,7 @@ body {
 .counter {
   height: 100%;
   box-sizing: border-box;
-  border: 0.1em solid grey;
+  border: 0.1em solid $backgroundSecondaryColor;
   display: inline-flex;
   flex-direction: row;
   text-align: center;
@@ -112,24 +131,22 @@ body {
 .btn {
   font-size: 1.5em;
   border-width: 0.1em;
-  width: 100px;
+  width: 8em;
   height: 100%;
   cursor: pointer;
   align-self: center;
 }
 
 .minus {
-  width: 40%;
   justify-self: left;
 }
 
 .plus {
-  width: 40%;
   justify-self: right;
 }
 
 .value {
-  width: 20%;
+  width: 20em;
   height: 100%;
   display: flex;
   justify-content: center;
@@ -138,24 +155,24 @@ body {
 }
 
 .value.pos {
-  color: #4CAF50;
+  color: $posPrimaryColor;
   background-color: inherit;
 }
 
 .value.neg {
-  color: red;
+  color: $negPrimaryColor;
   background-color: inherit;
 }
 
 .value.neu {
-  color: yellow;
+  color: $neuPrimaryColor;
   background-color: inherit;
 }
 
 .value.pos:hover
 .value.neg:hover
 .value.neu:hover {
-  background-color: #282c34;
+  background-color: $backgroundPrimaryColor;
 }
 
 /* Right Flex Box */
@@ -176,24 +193,24 @@ body {
 }
 
 .neu {
-  background-color: yellow;
+  background-color: $neuPrimaryColor;
 }
 .neu:hover {
-  background-color: darkgoldenrod;
+  background-color: $neuSecondaryColor;
 }
 
 .pos {
-  background-color: #4CAF50;
+  background-color: $posPrimaryColor;
 }
 .pos:hover {
-  background-color: darkgreen;
+  background-color: $posSecondaryColor;
 }
 
 .neg {
-  background-color: red;
+  background-color: $negPrimaryColor;
 }
 .neg:hover {
-  background-color: darkred;
+  background-color: $negSecondaryColor;
 }
 
 @media (max-width: 600px) {

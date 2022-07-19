@@ -14,13 +14,21 @@ const Counter = (props: {
       >
         -
       </button>
-      <input type="number" className={`value ${buttonClassName}`} onChange={(e) => {
-            setValue(e.target.valueAsNumber);
-        }}value={value} />
+      <input
+        type="number"
+        className={`value ${buttonClassName}`}
+        onChange={(e) => {
+          setValue(e.target.valueAsNumber);
+        }}
+        value={value}
+        onKeyDown={(e) =>
+          ["e", "E", "+", "-", "."].includes(e.key) && e.preventDefault()
+        }
+      />
       <button
         className={`btn plus ${buttonClassName}`}
         onClick={() => {
-            setValue(Math.max(0, value + 1));
+          setValue(Math.max(0, value + 1));
           !sound || soundEffect.play();
         }}
       >
